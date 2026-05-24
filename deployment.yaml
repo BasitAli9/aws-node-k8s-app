@@ -1,0 +1,24 @@
+apiVersion appsv1
+kind Deployment
+metadata
+  name node-k8s-deployment
+
+spec
+  replicas 1
+
+  selector
+    matchLabels
+      app node-k8s-app
+
+  template
+    metadata
+      labels
+        app node-k8s-app
+
+    spec
+      containers
+      - name node-k8s-container
+        image 098285162198.dkr.ecr.ap-south-1.amazonaws.comnode-k8s-appv2
+
+        ports
+        - containerPort 3000
